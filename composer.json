@@ -1,0 +1,25 @@
+{
+	"name": "egiw/LumenTwig",
+	"type": "library",
+	"description": "Twig Templating with Lumen",
+	"keywords": ["Templating", "Template Engine"],
+	"homepage": "https://github.com/egiw/twig-lumen",
+	"license": "MIT",
+	"authors": [
+	{
+		"name": "Egi Hasdi",
+		"email": "egi.hasdi@gmail.com	",
+		"homepage": "http://alpro.web.id",
+		"role": "Developer"
+	}
+	],
+		"require": {
+			"php": ">=5.4.0",
+			"twig/twig": "~1.15"
+		},
+		"autoload": {
+			"psr-0": {
+				"Monolog": "src"
+			}
+		}
+}
