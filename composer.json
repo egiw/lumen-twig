@@ -1,5 +1,5 @@
 {
-	"name": "egiw/LumenTwig",
+	"name": "egiw/lumen-twig",
 	"type": "library",
 	"description": "Twig Templating with Lumen",
 	"keywords": ["Templating", "Template Engine"],
