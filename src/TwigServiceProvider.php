@@ -4,6 +4,8 @@ namespace LumenTwig;
 
 use Illuminate\Support\ServiceProvider;
 use LumenTwig\Extensions\Url;
+use Illuminate\Support\Str;
+use Twig_SimpleFunction;
 
 /**
  * Description of TwigServiceProvider
@@ -23,7 +25,11 @@ class TwigServiceProvider extends ServiceProvider {
             $twig = new \Twig_Environment($loader, $options);
 
             $twig->addExtension(new \Twig_Extension_Debug());
-            $twig->addExtension(new Url($app->url));
+            $twig->addGlobal('URL', app('url'));
+            $twig->addGlobal('request', app('request'));
+            foreach (get_class_methods('Illuminate\Support\Str') as $method) {
+                $twig->addFunction(new Twig_SimpleFunction($method, ['Illuminate\Support\Str', $method]));
+            }
 
             $twig->addGlobal('app', $app);
 
