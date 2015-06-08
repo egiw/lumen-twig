@@ -27,6 +27,8 @@ class TwigServiceProvider extends ServiceProvider {
             $twig->addExtension(new \Twig_Extension_Debug());
             $twig->addGlobal('URL', app('url'));
             $twig->addGlobal('request', app('request'));
+			$twig->addGlobal('session', app('session'));
+			
             foreach (get_class_methods('Illuminate\Support\Str') as $method) {
                 $twig->addFunction(new Twig_SimpleFunction($method, ['Illuminate\Support\Str', $method]));
             }
