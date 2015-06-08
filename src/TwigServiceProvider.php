@@ -25,15 +25,17 @@ class TwigServiceProvider extends ServiceProvider {
             $twig = new \Twig_Environment($loader, $options);
 
             $twig->addExtension(new \Twig_Extension_Debug());
-            $twig->addGlobal('URL', app('url'));
+			$twig->addGlobal('app', $app);
+            $twig->addGlobal('url', app('url'));
             $twig->addGlobal('request', app('request'));
 			$twig->addGlobal('session', app('session'));
+			$twig->dadGlobal('auth', app('auth'));
 			
             foreach (get_class_methods('Illuminate\Support\Str') as $method) {
                 $twig->addFunction(new Twig_SimpleFunction($method, ['Illuminate\Support\Str', $method]));
             }
 
-            $twig->addGlobal('app', $app);
+            
 
             return new TwigFactory($twig);
         });
