@@ -29,7 +29,7 @@ class TwigServiceProvider extends ServiceProvider {
             $twig->addGlobal('url', app('url'));
             $twig->addGlobal('request', app('request'));
 			$twig->addGlobal('session', app('session'));
-			$twig->dadGlobal('auth', app('auth'));
+			$twig->addGlobal('auth', app('auth'));
 			
             foreach (get_class_methods('Illuminate\Support\Str') as $method) {
                 $twig->addFunction(new Twig_SimpleFunction($method, ['Illuminate\Support\Str', $method]));
